@@ -1,1 +1,3 @@
-# api-v2
+# Importante
+
+SDK em desenvolvimento não utilizar.
