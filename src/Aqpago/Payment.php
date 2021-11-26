@@ -81,6 +81,12 @@ class Payment implements \JsonSerializable
         $this->installments     = isset($data->Installments) ? $data->Installments : null;
         $this->amount           = isset($data->amount) ? $data->amount : null;
         $this->type             = isset($data->type) ? $data->type : false;
+       
+        $this->payment_multi    = isset($data->payment_multi) ? $data->payment_multi : false;
+        $this->status           = isset($data->status) ? $data->status : false;
+        $this->message          = isset($data->message) ? $data->message : false;
+        $this->created_at       = isset($data->created_at) ? $data->created_at : false;
+        $this->payment_date     = isset($data->payment_date) ? $data->payment_date : false;
 
         if (isset($data->credit_card)) {
             $this->credit_card = new CreditCard();
