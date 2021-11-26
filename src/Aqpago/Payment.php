@@ -78,7 +78,7 @@ class Payment implements \JsonSerializable
     {
         $this->id               = isset($data->id) ? $data->id : null;
         $this->reference_id     = isset($data->reference_id) ? $data->reference_id : null;
-        $this->installments     = isset($data->Installments) ? $data->Installments : null;
+        $this->installments     = isset($data->installments) ? $data->installments : null;
         $this->amount           = isset($data->amount) ? $data->amount : null;
         $this->type             = isset($data->type) ? $data->type : false;
        
