@@ -88,6 +88,10 @@ class Payment implements \JsonSerializable
         $this->created_at       = isset($data->created_at) ? $data->created_at : false;
         $this->payment_date     = isset($data->payment_date) ? $data->payment_date : false;
 
+        $this->ticket_url       = isset($data->ticket_url) ? $data->ticket_url : false;
+        $this->ticket_bar_code  = isset($data->ticket_bar_code) ? $data->ticket_bar_code : false;
+        $this->expiration_date  = isset($data->expiration_date) ? $data->expiration_date : false;
+
         if (isset($data->credit_card)) {
             $this->credit_card = new CreditCard();
             $this->credit_card->populate($data->credit_card);
