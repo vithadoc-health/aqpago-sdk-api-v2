@@ -52,10 +52,11 @@ class Payment implements \JsonSerializable
      * @param int $amount
      * @param int $installments
      */
-    public function __construct($amount = 0, $installments = 1)
+    public function __construct($amount = 0, $installments = 1, $reference_id = null)
     {
         $this->setAmount($amount);
         $this->setInstallments($installments);
+        $this->setReferenceId($reference_id);
     }
 
     /**

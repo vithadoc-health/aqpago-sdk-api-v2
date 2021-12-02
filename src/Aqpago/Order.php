@@ -162,13 +162,13 @@ class Order implements AqpagoSerializable
      *
      * @return creditCard
      */
-    public function creditCard($amount, $installments)
+    public function creditCard($amount, $installments, $reference_id = null)
     {
         if($this->getType() == Payment::PAYMENTTYPE_TICKET) {
             throw new AqpagoRequestException('Payment for card cannot be by ticket', 400);
         }
 
-        $payment = new Payment($amount, $installments);
+        $payment = new Payment($amount, $installments, $reference_id);
 
         $this->setPayments($payment);
 
