@@ -105,12 +105,12 @@ class Aqpago
     /**
      * Update a Payment on Aqpago
      *
-     * @param string  $order
+     * @param UpdateOrder  $order
      * @return \Aqbank\Apiv2\Payment
      *
      * @throws \Aqbank\Apiv2\Request\AqpagoRequestException
      */
-    public function updateOrder(Order $order)
+    public function updateOrder(UpdateOrder $order)
     {
         $updateOrderRequest = new UpdateOrderRequest($this->seller, $this->environment, $this->logger);
 
