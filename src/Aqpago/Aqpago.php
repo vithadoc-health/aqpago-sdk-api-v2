@@ -110,7 +110,7 @@ class Aqpago
      *
      * @throws \Aqbank\Apiv2\Request\AqpagoRequestException
      */
-    public function capturePayment(Order $order)
+    public function updateOrder(Order $order)
     {
         $updateOrderRequest = new UpdateOrderRequest($this->seller, $this->environment, $this->logger);
 
