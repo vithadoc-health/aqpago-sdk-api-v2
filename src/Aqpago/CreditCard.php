@@ -191,7 +191,7 @@ class CreditCard implements \JsonSerializable, AqpagoSerializable
      */
     public function setExpirationMonth($expiration_month)
     {
-        $this->expiration_month = $expiration_month;
+        $this->expiration_month = str_pad($expiration_month, 2, "0", STR_PAD_LEFT);
 
         return $this;
     }
