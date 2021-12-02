@@ -41,7 +41,7 @@ class UpdateOrderRequest extends AbstractRequest
     public function execute($order)
     {
         $url = $this->environment->getApiUrl() . '/order';
-
+        
         return $this->sendRequest('PUT', $url, $order);
     }
 

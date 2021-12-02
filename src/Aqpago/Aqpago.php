@@ -103,19 +103,18 @@ class Aqpago
     }
 
     /**
-     * Capture a Payment on Aqpago by orderId
+     * Update a Payment on Aqpago
      *
-     * @param string  $orderId
-     * @return \Aqbank\Apiv2\Payment The captured Payment.
+     * @param string  $order
+     * @return \Aqbank\Apiv2\Payment
      *
      * @throws \Aqbank\Apiv2\Request\AqpagoRequestException
      */
-    public function capturePayment($orderId)
+    public function capturePayment(Order $order)
     {
-        $updateOrderRequest = new UpdateOrderRequest('capture', $this->seller, $this->environment, $this->logger);
-        
-        return $updateOrderRequest->execute($orderId);
-    }
+        $updateOrderRequest = new UpdateOrderRequest($this->seller, $this->environment, $this->logger);
 
+        return $updateOrderRequest->execute($order);
+    }
 
 }
