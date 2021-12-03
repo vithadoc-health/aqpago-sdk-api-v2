@@ -113,9 +113,9 @@ class Payment implements \JsonSerializable
      *
      * @return CreditCard
      */
-    public function CreditCard()
+    public function CreditCard($installments)
     {
-        $card = new CreditCard();
+        $card = new CreditCard($installments);
 
         $this->setType(self::PAYMENTTYPE_CREDITCARD);
         $this->setCreditCard($card);
