@@ -77,7 +77,7 @@ class CreditCard implements \JsonSerializable, AqpagoSerializable
         $this->card_number      = isset($data->card_number) ? $data->card_number : null;
         $this->holder_name      = isset($data->holder_name) ? $data->holder_name : null;
         $this->expiration_month = isset($data->expiration_month) ? $data->expiration_month : null;
-        $this->expiration_year  = isset($data->expiration_year) ? !!$data->expiration_year : false;
+        $this->expiration_year  = isset($data->expiration_year) ? $data->expiration_year : false;
         $this->security_code    = isset($data->security_code) ? $data->security_code : null;
         $this->cpf              = isset($data->cpf) ? $data->cpf : null;
         $this->flag             = isset($data->flag) ? $data->flag : null;
