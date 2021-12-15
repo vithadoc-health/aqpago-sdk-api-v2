@@ -43,6 +43,8 @@ class CreditCard implements \JsonSerializable, AqpagoSerializable
 
     private $type_card;
 
+    private $card_id;
+
     /**
      * CreditCard constructor.
      *
@@ -84,6 +86,8 @@ class CreditCard implements \JsonSerializable, AqpagoSerializable
         $this->first4_digits    = isset($data->first4_digits) ? $data->first4_digits : null;
         $this->last4_digits     = isset($data->last4_digits) ? $data->last4_digits : null;
         $this->type_card        = isset($data->type_card) ? $data->type_card : null;
+        $this->card_id          = isset($data->card_id) ? $data->card_id : null;
+        
     }
 
     /**
@@ -332,4 +336,22 @@ class CreditCard implements \JsonSerializable, AqpagoSerializable
     {
         $this->type_card = $type_card;
     }
+
+
+    /**
+     * @return string
+     */
+    public function getCardId()
+    {
+        return $this->card_id;
+    }
+
+    /**
+     * @param string $card_id
+     */
+    public function setCardId($card_id)
+    {
+        $this->card_id = $card_id;
+    }
+
 }
