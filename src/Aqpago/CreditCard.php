@@ -335,6 +335,8 @@ class CreditCard implements \JsonSerializable, AqpagoSerializable
     public function setTypeCard($type_card)
     {
         $this->type_card = $type_card;
+
+        return $this;
     }
 
 
@@ -352,6 +354,8 @@ class CreditCard implements \JsonSerializable, AqpagoSerializable
     public function setCardId($card_id)
     {
         $this->card_id = $card_id;
+
+        return $this;
     }
 
 }
