@@ -37,7 +37,7 @@ class AqpagoEnvironment implements \Aqbank\Apiv2\AqpagoEnvironment
      */
     public static function production()
     {
-        $apiUrl = 'https://homologarapi.aqbank.com.br/api';
+        $apiUrl = 'https://apishopaqpago.aqbank.com.br/api';
 
         return new AqpagoEnvironment($apiUrl);
     }
