@@ -42,6 +42,7 @@ class AqpagoEnvironment implements \Aqbank\Apiv2\AqpagoEnvironment
         return new AqpagoEnvironment($apiUrl);
     }
 
+    
     /**
      * Gets the AqpagoEnvironment's Api URL
      *
