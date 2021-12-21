@@ -270,7 +270,7 @@ class Payment implements \JsonSerializable
      */
     public function setAmount($amount)
     {
-        $this->amount = $amount;
+        $this->amount = number_format($amount, 2, '.', '');
 
         return $this;
     }
