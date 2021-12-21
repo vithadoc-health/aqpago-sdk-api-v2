@@ -83,8 +83,8 @@ class Order implements AqpagoSerializable
             }
 
         } else {
-            $data                   = (isset($data->order)) ? $data->order : null;
-
+            $data                   = (isset($data->order)) ? $data->order : $data;
+            
             $this->id               = isset($data->id) ? $data->id : null;
             $this->orderId          = isset($data->id) ? $data->id : null;
             $this->reference_id     = isset($data->reference_id) ? $data->reference_id : null;
