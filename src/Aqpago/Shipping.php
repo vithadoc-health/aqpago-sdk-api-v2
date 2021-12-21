@@ -43,7 +43,7 @@ class Shipping implements AqpagoSerializable
     public function populate(\stdClass $data)
     {
         $this->aqenvios = isset($data->aqenvios) ? $data->aqenvios : null;
-        $this->amount   = isset($data->amount) ? $data->amount : null;
+        $this->amount   = isset($data->amount) ? $data->amount : 0.00;
         $this->method   = isset($data->method) ? $data->method : null;
     }
     
