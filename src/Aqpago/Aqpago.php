@@ -5,6 +5,7 @@ namespace Aqbank\Apiv2\Aqpago;
 use Aqbank\Apiv2\Aqpago\Request\Order\CreateOrderRequest;
 use Aqbank\Apiv2\Aqpago\Request\Order\QueryOrderRequest;
 use Aqbank\Apiv2\Aqpago\Request\Order\UpdateOrderRequest;
+use Aqbank\Apiv2\Aqpago\Request\Order\CancelOrderRequest;
 
 use Aqbank\Apiv2\SellerAqpago;
 use Psr\Log\LoggerInterface;
@@ -95,11 +96,11 @@ class Aqpago
      *
      * @throws \Aqbank\Apiv2\Request\AqpagoRequestException
      */
-    public function cancelOrder($orderId)
+    public function cancelOrder($order)
     {
-        $updateOrderRequest = new UpdateOrderRequest('void', $this->seller, $this->environment, $this->logger);
+        $cancelOrderRequest = new CancelOrderRequest($this->seller, $this->environment, $this->logger);
        
-        return $updateOrderRequest->execute($orderId);
+        return $cancelOrderRequest->execute($order);
     }
 
     /**

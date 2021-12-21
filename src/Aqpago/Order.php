@@ -35,6 +35,10 @@ class Order implements AqpagoSerializable
     private $total_pages;
     private $page;
     private $data;
+
+    private $success;
+    private $error;
+    private $message;
     
     /**
      * Order constructor.
@@ -91,7 +95,11 @@ class Order implements AqpagoSerializable
             $this->description      = isset($data->description) ? $data->description : null;
             $this->date_create      = isset($data->date_create) ? $data->date_create : null;
             $this->aqenvios         = isset($data->aqenvios) ? $data->aqenvios : null;
-
+            
+            $this->success          = isset($data->success) ? $data->success : null;
+            $this->error            = isset($data->error) ? $data->error : null;
+            $this->message          = isset($data->message) ? $data->message : null;
+            
             if (isset($data->customer)) {
                 $this->customer = new Customer();
                 $this->customer->populate($data->customer);
@@ -483,6 +491,60 @@ class Order implements AqpagoSerializable
     public function setPayments(Payment $payments)
     {
         $this->payments[] = $payments;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSuccess()
+    {
+        return $this->success;
+    }
+
+    /*
+     *
+     */
+    public function setSuccess($success)
+    {
+        $this->success = $success;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /*
+     *
+     */
+    public function setError($error)
+    {
+        $this->error = $error;
+
+        return $this;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    /*
+     *
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
 
         return $this;
     }

@@ -166,7 +166,11 @@ abstract class AbstractRequest
         }
 
         curl_close($curl);
+        
+        print_r( $response );
+        echo "<br>";
 
+        
         return $this->readResponse($statusCode, $response);
     }
 
