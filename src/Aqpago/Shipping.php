@@ -82,7 +82,7 @@ class Shipping implements AqpagoSerializable
      */
     public function setAmount($amount)
     {
-        $this->amount = number_format($amoun, 2, '.', '');
+        $this->amount = number_format($amount, 2, '.', '');
 
         return $this;
     }
