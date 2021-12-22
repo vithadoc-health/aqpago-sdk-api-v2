@@ -6,6 +6,9 @@ use Aqbank\Apiv2\Aqpago\Request\Order\CreateOrderRequest;
 use Aqbank\Apiv2\Aqpago\Request\Order\QueryOrderRequest;
 use Aqbank\Apiv2\Aqpago\Request\Order\UpdateOrderRequest;
 use Aqbank\Apiv2\Aqpago\Request\Order\CancelOrderRequest;
+use Aqbank\Apiv2\Aqpago\Request\Webhook\CreateWebhookRequest;
+use Aqbank\Apiv2\Aqpago\Request\Webhook\QueryWebhooksRequest;
+
 
 use Aqbank\Apiv2\SellerAqpago;
 use Psr\Log\LoggerInterface;
@@ -116,6 +119,20 @@ class Aqpago
         $updateOrderRequest = new UpdateOrderRequest($this->seller, $this->environment, $this->logger);
 
         return $updateOrderRequest->execute($order);
+    }
+
+    public function getWebhooks()
+    {
+        $queryWebhooksRequest = new QueryWebhooksRequest($this->seller, $this->environment, $this->logger);
+        
+        return $queryWebhooksRequest->execute();
+    }
+
+    public function createWebhook(Webhook $webhook)
+    {
+        $createWebhookRequest = new CreateWebhookRequest($this->seller, $this->environment, $this->logger);
+
+        return $createWebhookRequest->execute($webhook);
     }
 
 }
