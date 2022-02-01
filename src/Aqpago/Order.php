@@ -19,7 +19,7 @@ class Order implements AqpagoSerializable
     private $amount;
     private $type;
     private $status;
-    private $description;
+    private $description = 'Integração API ShopAQPago';
     private $date_create;
     private $aqenvios;
 
@@ -336,7 +336,7 @@ class Order implements AqpagoSerializable
      */
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->description = 'Integração API ShopAQPago';
 
         return $this;
     }

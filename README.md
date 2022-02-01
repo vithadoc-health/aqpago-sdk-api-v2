@@ -61,8 +61,7 @@ $order = new Order();
 try {
 	$order->setReferenceId( 'reference_id')
 		->setAmount('100.00') 
-		->setType('credit') // credit, multi_credit, multi_ticket, ticket
-		->setDescription('Descrição da venda');
+		->setType('credit'); // credit, multi_credit, multi_ticket, ticket
 	// setAmount deve ser igual ao total da soma dos itens + frete, o frete não é obrigatório.
 	
     $customer = $order->customer();
@@ -136,8 +135,7 @@ require '../vendor/autoload.php';
 ...
 $order->setReferenceId( 'reference_id')
 	->setAmount('100.00')
-	->setType('ticket') // Pagamento com boleto
-	->setDescription('Descrição da venda');
+	->setType('ticket'); // Pagamento com boleto
 ...
 // Pagamento por Boleto
 $order->ticket('100.00')
@@ -154,8 +152,7 @@ require '../vendor/autoload.php';
 ...
 $order->setReferenceId( 'reference_id')
 	->setAmount('100.00')
-	->setType('multi_credit') // 2 cartões de Crédito
-	->setDescription('Descrição da venda');
+	->setType('multi_credit'); // 2 cartões de Crédito
 ...
 
 // 1 primeiro cartão
@@ -192,8 +189,7 @@ require '../vendor/autoload.php';
 
 $order->setReferenceId( 'reference_id')
 	->setAmount('100.00')
-	->setType('multi_ticket') // cartão e boleto
-	->setDescription('Descrição da venda');
+	->setType('multi_ticket'); // cartão e boleto
 ...
 
 // Meio Cartão de crédito
