@@ -63,7 +63,7 @@ try {
 		->setAmount('100.00') 
 		->setType('credit') // credit, multi_credit, multi_ticket, ticket
 		->setDescription('Descrição da venda');
-	/* setAmount deve ser igual ao total da soma dos itens + frete, o frete não é obrigatório. */
+	// setAmount deve ser igual ao total da soma dos itens + frete, o frete não é obrigatório.
 	
     $customer = $order->customer();
     $customer->setName('Name')
