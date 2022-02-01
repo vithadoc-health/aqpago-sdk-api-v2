@@ -84,11 +84,13 @@ class Aqpago
      * 
      * @throws \Aqbank\Apiv2\Request\AqpagoRequestException
      */
-    public function getSearchOrders($filters)
+    public function getSearchOrders($filters = null)
     {
         $queryOrderRequest = new QueryOrderRequest($this->seller, $this->environment, $this->logger);
         
-        return $queryOrderRequest->execute( '?' . http_build_query($filters) );
+        $request = (is_array($filters)) ? '?' . http_build_query($filters) : '';
+
+        return $queryOrderRequest->execute( $request );
     }
 
     /**

@@ -115,12 +115,6 @@ abstract class AbstractRequest
                 curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
         }
 
-
-        /* if(!$this->auth) {
-            echo "<pre>";
-            print_r(json_encode($content, JSON_PRETTY_PRINT));echo "</pre>";die();
-        } */
-
         if ($content !== null) {
             curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($content));
 
@@ -167,6 +161,18 @@ abstract class AbstractRequest
 
         curl_close($curl);
        
+
+        /** debug send */
+        /* if(!$this->auth) {
+            echo "<pre>";
+            print_r(json_encode($headers, JSON_PRETTY_PRINT));echo "</pre>";
+            echo $url . ' - ';
+            echo $method;
+            echo "<br/><br/>";
+            print_r( $response );
+            die();
+        } */
+        
         return $this->readResponse($statusCode, $response);
     }
 

@@ -27,11 +27,12 @@ class Environment implements \Aqbank\Apiv2\Environment
      */
     public static function sandbox()
     {
-        $apiUrl = 'https://apishopaqpago.aqbank.com.br/api';
+        $apiUrl = 'https://homologarapi.aqbank.com.br/api';
 
         return new Environment($apiUrl);
     }
 
+    
     /**
      * @return Environment Production
      */

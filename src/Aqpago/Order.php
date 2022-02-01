@@ -78,10 +78,11 @@ class Order implements AqpagoSerializable
             
             if(count($data->data)) {
                 foreach($data->data as $k => $order){
+                    $order = (is_object($order)) ? json_encode($order) : $order;
                     $this->data[$k] = Order::fromJson($order);
                 }
             }
-
+            
         } else {
             $data                   = (isset($data->order)) ? $data->order : $data;
             
