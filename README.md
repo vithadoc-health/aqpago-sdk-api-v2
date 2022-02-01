@@ -169,7 +169,6 @@ $order->creditCard('50.00', 1)
 
 // 2 segundo cartão
 $order->creditCard('50.00', 1)
-                ->setInstallments(1)
                 ->setCardNumber('0000000000000000')
                 ->setHolderName('Fulano de tal')
                 ->setExpirationMonth('02')
@@ -359,7 +358,7 @@ try {
 	$order->setOrderId('XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX');
 
     $response = (new Aqpago($sellerAqpago, $environment))->cancelOrder($order);
-    /** Os pedidos só podem ser cancelados pela API no mesmo dia. **/
+    // Os pedidos só podem ser cancelados pela API no mesmo dia.
 
 } catch(Exception $e){
     echo $e->getMessage();
