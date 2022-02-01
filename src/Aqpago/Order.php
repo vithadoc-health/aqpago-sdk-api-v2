@@ -335,7 +335,7 @@ class Order implements AqpagoSerializable
      */
     public function setDescription($description)
     {
-        $this->description = 'Integração API ShopAQPago';
+        $this->description = $description;
 
         return $this;
     }
