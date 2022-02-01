@@ -5,7 +5,6 @@ namespace Aqbank\Apiv2\Aqpago;
 use Aqbank\Apiv2\Aqpago\Request\Exceptions\AqpagoError;
 use Aqbank\Apiv2\Aqpago\Request\Exceptions\AqpagoRequestException;
 
-
 /**
  * Class Order
  *
