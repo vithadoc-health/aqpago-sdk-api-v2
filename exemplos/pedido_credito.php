@@ -44,8 +44,8 @@ try {
                 ->setName('Fone de ouvido')
                 ->setQty(1)
                 ->setUnitAmount(100.00);
-    
-        // creditCard(''valor', 'parcelas')
+		
+        // creditCard(''valor total', 'parcelas')
         $order->creditCard('100.00', 1)
                         ->setCardNumber('0000000000000000')
                         ->setHolderName('Fulano de tal')
@@ -61,14 +61,14 @@ try {
 
     // Ambiente de produção
     //$environment = AqpagoEnvironment::production();
-
+	
     $seller_doc 	= '0000000000';
     $seller_token 	= 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
     $sellerAqpago   = new SellerAqpago($seller_doc, $seller_token);
-
+	
     $aqpago = (new Aqpago($sellerAqpago, $environment))->createOrder($order);
-
-} catch(Exception $e){
+	
+} catch(Exception $e) {
     echo "<pre>";
     print_r( $e->getMessage() . '|' . $e->getFile() . ' ' . $e->getLine() );
     echo "</pre>";

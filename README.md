@@ -89,19 +89,18 @@ try {
     $order->items()
         ->setName('Meu item')
         ->setQty(1)
-        ->setUnitAmount(100.00);
-    // O valor de Unit Amount * Qty será o total do item
+        ->setUnitAmount(50.00);
+    // (Unit Amount * Qty) será o total do item
     
-    /** 
     //para enviar mais itens no objeto repetir até que todos os itens sejam declarados
     // lembre-se que setAmount deve ser igual a soma dos itens mais o frete
     $order->items()
         ->setName('Segundo item')
         ->setQty(1)
-        ->setUnitAmount(100.00);
-    **/
+        ->setUnitAmount(50.00);
     
-    // creditCard(''valor', 'parcelas')
+    
+    // creditCard('valor total', 'parcelas')
     $order->creditCard('100.00', 1)
         ->setCardNumber('0000000000000000')
         ->setHolderName('Fulano de tal')
@@ -109,7 +108,7 @@ try {
         ->setExpirationYear('2023')
         ->setSecurityCode('123')
         ->setCpf('00000000000');
-        
+    
     $aqpago = (new Aqpago($sellerAqpago, $environment))->createOrder($order);
 
 } catch(Exception $e){
