@@ -154,7 +154,7 @@ abstract class AbstractRequest
         if (curl_errno($curl)) {
             $message = sprintf('cURL error[%s]: %s', curl_errno($curl), curl_error($curl));
 
-            $this->logger->error($message);
+			if ($this->logger !== null) $this->logger->error($message);
 
             throw new \RuntimeException($message);
         }
