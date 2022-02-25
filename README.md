@@ -1,7 +1,5 @@
 [API AQPago]: https://apideveloper.aqpago.com.br
 
-# Lançamento em breve não utilizar!
-
 # SDK para integrar com a AQPago 
 
 ### Descrição
