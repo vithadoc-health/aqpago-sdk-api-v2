@@ -33,7 +33,7 @@ try {
 ?>
 <html>
     <head>
-        <title>Load Session ID</title>
+        <title>Page Checkout Load Session ID</title>
     </head>
     <body>
         <script>
