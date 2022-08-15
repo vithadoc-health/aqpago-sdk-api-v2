@@ -66,6 +66,7 @@ try {
 	
     $customer = $order->customer();
     $customer->setName('Name')
+        ->setLastName('last name')
         ->setEmail('exemple@exemple.com.br')
         ->setTaxDocument('00000000000');
     
