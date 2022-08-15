@@ -22,6 +22,13 @@ abstract class AbstractRequest
     private $token;
     private $auth;
 
+    /**
+     * Token public for seller
+     *
+     * @var string
+     */
+    public $pulic_token;
+
 	/**
 	 * AbstractRequest constructor.
 	 *
@@ -47,11 +54,12 @@ abstract class AbstractRequest
 
     private function getAuth()
     {
-        $this->auth     = true;
-        $respones       = $this->sendRequest('POST', $this->environment->getApiUrl() . '/auth/login', $this->seller); 
-        $respones       = json_decode($respones, true);
-        $this->token    = $respones['token'];
-        $this->auth     = false;
+        $this->auth         = true;
+        $respones           = $this->sendRequest('POST', $this->environment->getApiUrl() . '/auth/login', $this->seller); 
+        $respones           = json_decode($respones, true);
+        $this->token        = $respones['token'];
+        $this->pulic_token  = $respones['fingerprint'];
+        $this->auth         = false;
     }
 
     /**

@@ -7,8 +7,21 @@ use Aqbank\Apiv2\Aqpago\Request\AqpagoEnvironment;
 use Aqbank\Apiv2\Aqpago\Order;
 use Aqbank\Apiv2\Aqpago\Aqpago;
 
+// Ambiente de homologação
+//$environment = AqpagoEnvironment::sandbox();
 
-$order = new Order();
+// Ambiente de produção
+$environment = AqpagoEnvironment::production();
+
+
+/**
+ * aqpago_session_id
+ * 
+ * see how to get the session in getSessionId.php
+ */
+$aqpago_session_id = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx';
+
+$order = new Order($aqpago_session_id);
 
 
 try {
@@ -21,6 +34,7 @@ try {
         $customer = $order->customer();
 
         $customer->setName('Name')
+                    ->setLastName('last name')
                     ->setEmail('exemple@exemple.com.br')
                     ->setTaxDocument('00000000000');
                     

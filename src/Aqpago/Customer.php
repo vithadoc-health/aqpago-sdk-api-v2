@@ -11,6 +11,8 @@ class Customer implements AqpagoSerializable
 {
     private $name;
 
+    private $last_name;
+
     private $email;
 
     private $tax_document;
@@ -47,6 +49,7 @@ class Customer implements AqpagoSerializable
     public function populate(\stdClass $data)
     {
         $this->name         = isset($data->Name) ? $data->Name : null;
+        $this->last_name    = isset($data->last_name) ? $data->last_name : null;
         $this->email        = isset($data->Email) ? $data->Email : null;
         $this->tax_document = isset($data->tax_document) ? $data->tax_document : null;
         $this->type         = isset($data->type) ? $data->type : null;
@@ -107,6 +110,26 @@ class Customer implements AqpagoSerializable
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->last_name;
+    }
+
+    /**
+     * @param $last_name
+     *
+     * @return $this
+     */
+    public function setLastName($last_name)
+    {
+        $this->last_name = $last_name;
 
         return $this;
     }

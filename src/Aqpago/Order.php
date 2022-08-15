@@ -13,6 +13,7 @@ use Aqbank\Apiv2\Aqpago\Request\Exceptions\AqpagoRequestException;
 class Order implements AqpagoSerializable
 {
     private $id;
+    private $session_id;
     private $reference_id;
     private $platform;
     private $amount;
@@ -44,8 +45,9 @@ class Order implements AqpagoSerializable
      *
      * @param null $reference_id
      */
-    public function __construct($reference_id = null)
+    public function __construct($session_id = null, $reference_id = null)
     {
+        $this->setSessionId($session_id);
         $this->setReferenceId($reference_id);
     }
 
@@ -545,6 +547,24 @@ class Order implements AqpagoSerializable
     public function setMessage($message)
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSessionId()
+    {
+        return $this->session_id;
+    }
+
+    /*
+     *
+     */
+    public function setSessionId($session_id)
+    {
+        $this->session_id = $session_id;
 
         return $this;
     }

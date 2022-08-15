@@ -8,7 +8,7 @@ use Aqbank\Apiv2\Aqpago\Request\Order\UpdateOrderRequest;
 use Aqbank\Apiv2\Aqpago\Request\Order\CancelOrderRequest;
 use Aqbank\Apiv2\Aqpago\Request\Webhook\CreateWebhookRequest;
 use Aqbank\Apiv2\Aqpago\Request\Webhook\QueryWebhooksRequest;
-
+use Aqbank\Apiv2\Aqpago\Request\AuthInfos\PublicToken;
 
 use Aqbank\Apiv2\SellerAqpago;
 use Psr\Log\LoggerInterface;
@@ -137,4 +137,10 @@ class Aqpago
         return $createWebhookRequest->execute($webhook);
     }
 
+    public function getPublicToken()
+    {
+        $publicToken = new PublicToken($this->seller, $this->environment, $this->logger);
+
+        return $publicToken->pulic_token;
+    }
 }
