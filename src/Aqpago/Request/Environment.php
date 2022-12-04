@@ -27,12 +27,14 @@ class Environment implements \Aqbank\Apiv2\Environment
      */
     public static function sandbox()
     {
+        /**
+         * New url sandbox
+         */
         $apiUrl = 'https://sandboxaqpago.aqbank.com.br/api';
 
         return new Environment($apiUrl);
     }
 
-    
     /**
      * @return Environment Production
      */
