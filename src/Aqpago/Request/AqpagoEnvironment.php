@@ -27,7 +27,7 @@ class AqpagoEnvironment implements \Aqbank\Apiv2\AqpagoEnvironment
      */
     public static function sandbox()
     {
-        $apiUrl = 'https://homologarapi.aqbank.com.br/api';
+        $apiUrl = 'https://sandboxaqpago.aqbank.com.br/api';
 
         return new AqpagoEnvironment($apiUrl);
     }
