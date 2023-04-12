@@ -3,6 +3,9 @@
 namespace Aqbank\Apiv2\Aqpago;
 
 use Aqbank\Apiv2\Aqpago\Request\Order\CreateOrderRequest;
+use Aqbank\Apiv2\Aqpago\Request\Pix\CreateChargePixRequest;
+use Aqbank\Apiv2\Aqpago\Request\Pix\CreateChargePixTaxIdRequest;
+use Aqbank\Apiv2\Aqpago\Request\Pix\CreatePayerPixRequest;
 use Aqbank\Apiv2\Aqpago\Request\Order\QueryOrderRequest;
 use Aqbank\Apiv2\Aqpago\Request\Order\UpdateOrderRequest;
 use Aqbank\Apiv2\Aqpago\Request\Order\CancelOrderRequest;
@@ -59,6 +62,51 @@ class Aqpago
         $createOrderRequest = new CreateOrderRequest($this->seller, $this->environment, $this->logger);
 
         return $createOrderRequest->execute($order);
+    }
+
+    /**
+     * Send the Order to be created and return the Order with tid and the status
+     *
+     * @param PayerPix $payerPix
+     * @return PayerPix The PayerPix with authorization, id, etc. returned by Aqpago.
+     * 
+     * @throws \Aqbank\Apiv2\Request\AqpagoRequestException
+     */
+    public function createPayerPix(PayerPix $payerPix)
+    {
+        $createPayerPixRequest = new CreatePayerPixRequest($this->seller, $this->environment, $this->logger);
+
+        return $createPayerPixRequest->execute($payerPix);
+    }
+
+    /**
+     * Send the Order to be created and return the Order with tid and the status
+     *
+     * @param ChargePix $chargePix
+     * @return ChargePix The ChargePix with authorization, id, etc. returned by Aqpago.
+     * 
+     * @throws \Aqbank\Apiv2\Request\AqpagoRequestException
+     */
+    public function createOrderPix(ChargePix $chargePix)
+    {
+        $createOrderRequest = new CreateChargePixRequest($this->seller, $this->environment, $this->logger);
+
+        return $createOrderRequest->execute($chargePix);
+    }
+
+    /**
+     * Send the Order to be created and return the Order with tid and the status
+     *
+     * @param ChargePixTaxId $chargePix
+     * @return ChargePixTaxId The ChargePix with authorization, id, etc. returned by Aqpago.
+     * 
+     * @throws \Aqbank\Apiv2\Request\AqpagoRequestException
+     */
+    public function createOrderPixTaxId(ChargePixTaxId $chargePix)
+    {
+        $createOrderRequest = new CreateChargePixTaxIdRequest($this->seller, $this->environment, $this->logger);
+
+        return $createOrderRequest->execute($chargePix);
     }
 
     /**
