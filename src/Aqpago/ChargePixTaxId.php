@@ -19,6 +19,7 @@ class ChargePixTaxId implements AqpagoSerializable
     private $amount;
     private $validate;
     private $descripition;
+    
     private $penalty = '0';
     private $method = 'pix';
     private $type = 'unique';
@@ -109,9 +110,9 @@ class ChargePixTaxId implements AqpagoSerializable
     }
 
     /**
-     * @return array
+     * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize():mixed
     {
         $array = array_filter(
             get_object_vars($this)
@@ -138,13 +139,13 @@ class ChargePixTaxId implements AqpagoSerializable
     }
 
     /**
-     * @param $orderId
+     * @param $id
      *
      * @return $this
      */
-    public function setId($orderId)
+    public function setId($id)
     {
-        $this->id = $orderId;
+        $this->id = $id;
 
         return $this;
     }
@@ -154,9 +155,9 @@ class ChargePixTaxId implements AqpagoSerializable
      */
     public function getId()
     {
-        return $this->orderId;
+        return $this->id;
     }
-
+    
     /**
      * Remove payer object this json
      *

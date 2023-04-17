@@ -6,6 +6,7 @@ use Aqbank\Apiv2\Aqpago\Request\Order\CreateOrderRequest;
 use Aqbank\Apiv2\Aqpago\Request\Pix\CreateChargePixRequest;
 use Aqbank\Apiv2\Aqpago\Request\Pix\CreateChargePixTaxIdRequest;
 use Aqbank\Apiv2\Aqpago\Request\Pix\CreatePayerPixRequest;
+use Aqbank\Apiv2\Aqpago\Request\Pix\QueryChargePixRequest;
 use Aqbank\Apiv2\Aqpago\Request\Order\QueryOrderRequest;
 use Aqbank\Apiv2\Aqpago\Request\Order\UpdateOrderRequest;
 use Aqbank\Apiv2\Aqpago\Request\Order\CancelOrderRequest;
@@ -122,6 +123,21 @@ class Aqpago
         $queryOrderRequest = new QueryOrderRequest($this->seller, $this->environment, $this->logger);
         
         return $queryOrderRequest->execute('/' . $orderId);
+    }
+
+    /**
+     * Query a order pix on Aqpago by Id
+     *
+     * @param string $orderId
+     * @return Aqpago The Order with authorization, id, etc. returned by Aqpago.
+     * 
+     * @throws \Aqbank\Apiv2\Request\AqpagoRequestException
+     */
+    public function getOrderPix($orderId)
+    {
+        $QueryChargePixRequest = new QueryChargePixRequest($this->seller, $this->environment, $this->logger);
+        
+        return $QueryChargePixRequest->execute('/' . $orderId);
     }
 
     /**

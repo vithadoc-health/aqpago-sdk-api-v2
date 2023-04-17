@@ -58,15 +58,36 @@ class ChargePix implements AqpagoSerializable
     {
         /** search filter **/
         if(isset($data->data)){
-            $this->total_rows   = isset($data->total_rows) ? $data->total_rows : null;
-            $this->total_pages  = isset($data->total_pages) ? $data->total_pages : null;
-            $this->page         = isset($data->page) ? $data->page : null;
+            if (isset($data->data)) $data = $data->data;
+
+            $data                       = (isset($data->data)) ? $data->data : $data;
             
-            if(count($data->data)) {
-                foreach($data->data as $k => $order){
-                    $order = (is_object($order)) ? json_encode($order) : $order;
-                    $this->data[$k] = ChargePix::fromJson($order);
-                }
+            $this->id                   = isset($data->id) ? $data->id : null;
+            $this->payer                = isset($data->payer) ? $data->payer : null;
+            $this->payer_id             = isset($data->payer_id) ? $data->payer_id : null;
+            $this->invoice_name         = isset($data->invoice_name) ? $data->invoice_name : null;
+            $this->amount               = isset($data->amount) ? $data->amount : null;
+            $this->validate             = isset($data->validate) ? $data->validate : null;
+            $this->descripition         = isset($data->descripition) ? $data->descripition : null;
+            $this->resource             = isset($data->resource) ? $data->resource : null;
+            $this->taxpayer_id          = isset($data->taxpayer_id) ? $data->taxpayer_id : null;
+            $this->reconciliation_id    = isset($data->reconciliation_id) ? $data->reconciliation_id : null;
+            $this->original_amount      = isset($data->original_amount) ? $data->original_amount : null;
+            $this->status               = isset($data->status) ? $data->status : null;
+            $this->brcode               = isset($data->brcode) ? $data->brcode : null;
+            $this->barcode              = isset($data->barcode) ? $data->barcode : null;
+            $this->digitable_line       = isset($data->digitable_line) ? $data->digitable_line : null;
+            $this->url                  = isset($data->url) ? $data->url : null;
+            $this->expiration_date      = isset($data->expiration_date) ? $data->expiration_date : null;
+            $this->expiration           = isset($data->expiration) ? $data->expiration : null;
+            
+            $this->success          = isset($data->success) ? $data->success : null;
+            $this->error            = isset($data->error) ? $data->error : null;
+            $this->message          = isset($data->message) ? $data->message : null;
+            
+            if (isset($data->transaction)) {
+                $this->transaction = new Transaction();
+                $this->transaction->populate($data->transaction);
             }
             
         } else {
@@ -105,9 +126,9 @@ class ChargePix implements AqpagoSerializable
     }
 
     /**
-     * @return array
+     * @return mixed
      */
-    public function jsonSerialize()
+    public function jsonSerialize():mixed
     {
         return array_filter(
             get_object_vars($this)
