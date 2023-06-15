@@ -102,7 +102,7 @@ class Payment implements \JsonSerializable
     /**
      * @return mixed
      */
-    public function jsonSerialize():mixed
+    public function jsonSerialize()
     {
         return array_filter(
             get_object_vars($this)

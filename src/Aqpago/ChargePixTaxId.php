@@ -112,7 +112,7 @@ class ChargePixTaxId implements AqpagoSerializable
     /**
      * @return mixed
      */
-    public function jsonSerialize():mixed
+    public function jsonSerialize()
     {
         $array = array_filter(
             get_object_vars($this)
